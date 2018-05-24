@@ -6,7 +6,7 @@ Script designed with the intent to have playlists reflect what's on the ROMs fol
 Generate a playlist for each folder on your ROMs folder, ignoring No-intro, romsets, etc.
 
 
-This script is intended to be run at system startup or each time you add roms to your Lakka box with no user interaction (besides initial installation)
+This script is intended to be run periodically or each time you add roms to your Lakka box with no user interaction (besides initial installation)
 
 **THIS DOESN'T WORK ON RETROARCH**
 Lakka autodetects which core to use for games on playlists
@@ -32,3 +32,17 @@ Regular Retroarch, however, doesn't seem to do that, as far as i tested
 	This way, each playlist will have its corresponding icon
 
 - Run the script and let it do it's magic, after a short wait, you should have your new playlists generated
+
+#### Make the script run automatically
+
+If you want to have your playlists updated as fast as possible without having to run the script manually
+you can add a cronjob to have the script run automatically every minute, that way, for every change you make
+(adding or removing games), the playlists will be updated in less than a minute
+
+You can do this by running ```crontab -e``` and adding there
+
+```
+* * * * * /path/to/the/lakkaPlaylistScript.sh
+```
+
+And saving the crontab.
